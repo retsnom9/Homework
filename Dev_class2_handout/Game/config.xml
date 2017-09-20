@@ -1,0 +1,6 @@
+<!--Game configuration-->
+
+<config>
+  <window title="My Game" fullscreen="false" borderless="false" resizable="true" fullscreen_window="false" vsync="true" width="1024" height="768" scale="1"/>
+  <audio fade="2"/>
+</config>
