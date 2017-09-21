@@ -1,3 +1,6 @@
+#include <iostream> 
+#include <sstream> 
+
 #include "p2Defs.h"
 #include "p2Log.h"
 
@@ -46,6 +49,8 @@ j1App::~j1App()
 	}
 
 	modules.clear();
+
+	config_file.reset();
 }
 
 void j1App::AddModule(j1Module* module)
@@ -57,26 +62,22 @@ void j1App::AddModule(j1Module* module)
 // Called before render is available
 bool j1App::Awake()
 {
-	// TODO 3: Load config.xml file using load_file() method from the xml_document class.
-	// If everything goes well, load the top tag inside the xml_node property
-	// created in the last TODO
+	bool ret = LoadConfig();
 
-	App->document.load_file("config.xml");
-	node = document.first_child();
+	// self-config
+	title.create(app_config.child("title").child_value());
+	organization.create(app_config.child("organization").child_value());
 
-	bool ret = true;
-
-	p2List_item<j1Module*>* item;
-	item = modules.start;
-
-	while(item != NULL && ret == true)
+	if(ret == true)
 	{
-		// TODO 7: Add a new argument to the Awake method to receive a pointer to a xml node.
-		// If the section with the module name exist in config.xml, fill the pointer with the address of a valid xml_node
-		// that can be used to read all variables from that section. Send nullptr if the section does not exist in config.xml
+		p2List_item<j1Module*>* item;
+		item = modules.start;
 
-		ret = item->data->Awake();
-		item = item->next;
+		while(item != NULL && ret == true)
+		{
+			ret = item->data->Awake(config.child(item->data->name.GetString()));
+			item = item->next;
+		}
 	}
 
 	return ret;
@@ -120,6 +121,28 @@ bool j1App::Update()
 	return ret;
 }
 
+
+// ---------------------------------------------
+bool j1App::LoadConfig()
+{
+	bool ret = true;
+
+	pugi::xml_parse_result result = config_file.load_file("config.xml");
+
+	if(result == NULL)
+	{
+		LOG("Could not load map xml file config.xml. pugi error: %s", result.description());
+		ret = false;
+	}
+	else
+	{
+		config = config_file.child("config");
+		app_config = config.child("app");
+	}
+
+	return ret;
+}
+
 // ---------------------------------------------
 void j1App::PrepareUpdate()
 {
@@ -128,6 +151,11 @@ void j1App::PrepareUpdate()
 // ---------------------------------------------
 void j1App::FinishUpdate()
 {
+	// TODO 1: This is a good place to call load / Save functions
+	if (load)
+		Load();
+	else if (save)
+		Save();
 }
 
 // Call modules before each loop iteration
@@ -225,3 +253,45 @@ const char* j1App::GetArgv(int index) const
 	else
 		return NULL;
 }
+
+// ---------------------------------------
+const char* j1App::GetTitle() const
+
+
+{
+	return title.GetString();
+}
+
+// ---------------------------------------
+const char* j1App::GetOrganization() const
+{
+	return organization.GetString();
+}
+
+void j1App::LoadRequest()
+{
+	load = true;
+}
+void j1App::SaveRequest() const
+{
+	save = true;
+}
+
+void j1App::Load() 
+{
+	LOG("I'm about to load now");
+	load = false;
+}
+void j1App::Save() const
+{
+	LOG("I'm about to save now");
+	save = false;
+}
+
+// TODO 3: Create a simulation of the xml file to read
+
+// TODO 4: Create a method to actually load an xml file
+// then call all the modules to load themselves
+
+// TODO 7: Create a method to save the current state
+

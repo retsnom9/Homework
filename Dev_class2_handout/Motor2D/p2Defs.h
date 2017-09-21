@@ -51,18 +51,6 @@ template <class VALUE_TYPE> void SWAP(VALUE_TYPE& a, VALUE_TYPE& b)
 #define MID_STR		255
 #define HUGE_STR	8192
 
-// TODO 6: Improve config.xml to store all configuration variables that we have as macros
-// Use a section with the name of each module (see Module::name)
-
-#define FULLSCREEN App->node.child("window").attribute("fullscreen").as_bool()
-#define BORDERLESS App->node.child("window").attribute("borderless").as_bool()
-#define RESIZABLE App->node.child("window").attribute("resizable").as_bool()
-#define FULLSCREEN_WINDOW App->node.child("window").attribute("fullscreen_window").as_bool()
-#define TITLE App->node.child("window").attribute("title").as_string()
-#define WIDTH App->node.child("window").attribute("width").as_int()
-#define HEIGHT App->node.child("window").attribute("height").as_int()
-#define SCALE App->node.child("window").attribute("scale").as_int()
-
 // Joins a path and file
 inline const char* const PATH(const char* folder, const char* file)
 {

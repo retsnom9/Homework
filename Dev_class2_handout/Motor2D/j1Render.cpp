@@ -4,7 +4,7 @@
 #include "j1Window.h"
 #include "j1Render.h"
 
-#define VSYNC App->node.child("window").attribute("vsync").as_bool()
+#define VSYNC true
 
 j1Render::j1Render() : j1Module()
 {
@@ -20,15 +20,19 @@ j1Render::~j1Render()
 {}
 
 // Called before render is available
-bool j1Render::Awake()
+bool j1Render::Awake(pugi::xml_node& config)
 {
 	LOG("Create SDL rendering context");
 	bool ret = true;
 	// load flags
 	Uint32 flags = SDL_RENDERER_ACCELERATED;
 
-	flags |= SDL_RENDERER_PRESENTVSYNC;
-	  
+	if(config.child("vsync").attribute("value").as_bool(true) == true)
+	{
+		flags |= SDL_RENDERER_PRESENTVSYNC;
+		LOG("Using vsync");
+	}
+
 	renderer = SDL_CreateRenderer(App->win->window, -1, flags);
 
 	if(renderer == NULL)
@@ -82,6 +86,12 @@ bool j1Render::CleanUp()
 	SDL_DestroyRenderer(renderer);
 	return true;
 }
+
+// TODO 6: Create a method to load the state
+// for now it will be camera's x and y
+
+// TODO 8: Create a method to save the state
+// using append_child and append_attribute
 
 void j1Render::SetBackgroundColor(SDL_Color color)
 {

@@ -5,7 +5,7 @@ int main()
 {
 	vec3<float> vec(3, 2, -4);
 	vec3<float> vec2(4, 2, 6);
-	vec3<float> vec3 = vec.operator+(vec2);
+	vec3<float> vec3 = vec + vec2;
 
 	printf("Vectors are:\n");
 	vec.print();
@@ -16,13 +16,13 @@ int main()
 	printf("\nvec1 + vec 2 = ");
 	vec3.print();
 	printf("\nvec1 - vec 2 = ");
-	vec3 = vec.operator-(vec2);
+	vec3 = vec - vec2;
 	vec3.print();
 
 	printf("\nThe distance between them is: %.2f", vec.distance_to(vec2));
 
 	printf("\nvec1 will now be the result of vec1 - vec2 [");
-	vec.operator-=(vec2);
+	vec -= vec2;
 	vec.print();
 	printf("]");
 
@@ -54,7 +54,7 @@ int main()
 	printf("\nNormalized vec2 equals:\n");
 	vec2.print();
 
-	if (vec.operator==(vec2))
+	if (vec == vec2)
 	{
 		printf("\nvec1 and vec2 are equal:\n");
 		vec.print();
@@ -71,9 +71,9 @@ int main()
 		printf(" => vec2");
 	}
 
-	vec.operator=(vec2);
+	vec = vec2;
 
-	if (vec.operator==(vec2))
+	if (vec == vec2)
 	{
 		printf("\nvec1 and vec2 are equal:\n");
 		vec.print();

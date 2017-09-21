@@ -3,7 +3,7 @@
 
 #include "j1Module.h"
 
-#define DEFAULT_MUSIC_FADE_TIME App->node.child("audio").attribute("fade").as_float
+#define DEFAULT_MUSIC_FADE_TIME 2.0f
 
 struct _Mix_Music;
 struct Mix_Chunk;
@@ -18,7 +18,7 @@ public:
 	virtual ~j1Audio();
 
 	// Called before render is available
-	bool Awake();
+	bool Awake(pugi::xml_node&);
 
 	// Called before quitting
 	bool CleanUp();

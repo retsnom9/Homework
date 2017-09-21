@@ -1,6 +1,21 @@
-<!--Game configuration-->
+<!-- Config file for the game -->
 
 <config>
-  <window title="My Game" fullscreen="false" borderless="false" resizable="true" fullscreen_window="false" vsync="true" width="1024" height="768" scale="1"/>
-  <audio fade="2"/>
+  <app>
+    <title>Game Development Testbed</title>
+    <organization>UPC</organization>
+  </app>
+	
+  <renderer>
+    <vsync value="false"/>
+  </renderer>
+
+  <window>
+    <resolution width="1024" height="768" scale="1"/>
+    <fullscreen value="false"/>
+    <borderless value="false"/>
+    <resizable value="false"/>
+    <fullscreen_window value="false"/>
+  </window>
+
 </config>
