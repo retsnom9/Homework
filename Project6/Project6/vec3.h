@@ -106,7 +106,7 @@ bool vec3<T>::operator==(vec3 newvec3)
 template <class T>
 void vec3<T>::print() const
 {
-	printf("%f, %f, %f", x, y, z);
+	printf("(%.2f, %.2f, %.2f)", x, y, z);
 }
 
 #endif

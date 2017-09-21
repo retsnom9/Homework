@@ -11,8 +11,8 @@ public:
 	vec3(T x, T y, T z);
 	~vec3();
 
-	vec3<T> Vec3<T>::operator+(const vec3 &newvec3);
-	vec3<T> Vec3<T>::operator-(const vec3 &newvec3);
+	vec3<T> vec3<T>::operator+(const vec3 &newvec3);
+	vec3<T> vec3<T>::operator-(const vec3 &newvec3);
 	void vec3<T>::operator+=(const vec3 &newvec3);
 	void vec3<T>::operator-=(const vec3 &newvec3);
 	void vec3<T>::operator=(const vec3 &newvec3);
@@ -62,13 +62,13 @@ T vec3<T>::distance_to(vec3 vec)
 }
 
 template <class T>
-vec3<T> vec3<T>::operator+(const vec3<T> &newvec3)
+vec3<T> vec3<T>::operator+(const vec3 &newvec3)
 {
 	return vec3<T>(x + newvec3.x, y + newvec3.y, z + newvec3.z);
 }
 
 template <class T>
-vec3<T> vec3<T>::operator-(const vec3<T> &newvec3)
+vec3<T> vec3<T>::operator-(const vec3 &newvec3)
 {
 	return vec3<T>(x - newvec3.x, y - newvec3.y, z - newvec3.z);
 }
@@ -106,7 +106,7 @@ bool vec3<T>::operator==(const vec3 &newvec3)
 template <class T>
 void vec3<T>::print() const
 {
-	printf(vec.x, vec.y, vec.z);
+	printf("(%f, %f, %f)", vec.x, vec.y, vec.z);
 }
 
 #endif
