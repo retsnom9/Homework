@@ -1,0 +1,7 @@
+﻿  Source.cpp
+c:\users\joan\documents\visual studio 2015\projects\project6\project6\vec3.h(41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  c:\users\joan\documents\visual studio 2015\projects\project6\project6\vec3.h(40): note: while compiling class template member function 'void vec3<float>::normalize(void)'
+  c:\users\joan\documents\visual studio 2015\projects\project6\project6\source.cpp(44): note: see reference to function template instantiation 'void vec3<float>::normalize(void)' being compiled
+  c:\users\joan\documents\visual studio 2015\projects\project6\project6\source.cpp(6): note: see reference to class template instantiation 'vec3<float>' being compiled
+  Project6.vcxproj -> c:\users\joan\documents\visual studio 2015\Projects\Project6\Debug\Project6.exe
+  Project6.vcxproj -> c:\users\joan\documents\visual studio 2015\Projects\Project6\Debug\Project6.pdb (Partial PDB)
