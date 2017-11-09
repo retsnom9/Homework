@@ -1,17 +1,32 @@
 ﻿  j1App.cpp
-c:\users\genisbs\desktop\dev_class10_handout\motor2d\j1app.cpp(201): warning C4477: 'sprintf_s' : format string '%lu' requires an argument of type 'unsigned long', but variadic argument 5 has type 'uint64'
-  c:\users\genisbs\desktop\dev_class10_handout\motor2d\j1app.cpp(201): note: consider using '%llu' in the format string
-  c:\users\genisbs\desktop\dev_class10_handout\motor2d\j1app.cpp(201): note: consider using '%I64u' in the format string
-  Generating Code...
-  Skipping... (no relevant changes detected)
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1app.cpp(208): warning C4244: '=': conversión de 'uint' a 'float'; posible pérdida de datos
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1app.cpp(211): warning C4244: 'argumento': conversión de 'float' a 'Uint32'; posible pérdida de datos
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1app.cpp(213): warning C4244: '=': conversión de 'double' a 'float'; posible pérdida de datos
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1app.cpp(202): warning C4477: 'sprintf_s' : la cadena de formato '%lu' requiere un argumento de tipo 'unsigned long', pero el argumento variádico 5 tiene el tipo 'uint64'
+  c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1app.cpp(202): note: considere el uso de ' %llu' en la cadena de formato
+  c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1app.cpp(202): note: considere el uso de ' %I64u' en la cadena de formato
+  Generando código...
+  Compilando...
   j1Window.cpp
   j1Textures.cpp
   j1Scene.cpp
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1scene.cpp(90): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1scene.cpp(93): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1scene.cpp(96): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1scene.cpp(99): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
   j1Render.cpp
   j1Pathfinding.cpp
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\p2point.h(114): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\p2point.h(110): note: durante la compilación de la función miembro de plantilla clase de 'int p2Point<int>::DistanceTo(const p2Point<int> &) const'
+  c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1pathfinding.cpp(160): note: vea la referencia a la creación de instancias de plantilla de función 'int p2Point<int>::DistanceTo(const p2Point<int> &) const' que se está compilando
+  c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1pathfinding.h(81): note: vea la referencia a la creación de instancias de plantilla clase de 'p2Point<int>' que se está compilando
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\p2point.h(114): warning C4244: 'return': conversión de 'float' a 'int'; posible pérdida de datos
   j1Map.cpp
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1map.cpp(106): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\joan\documents\github\homework\dev_class10_handout\motor2d\j1map.cpp(107): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
   j1Main.cpp
   j1Input.cpp
+  Generando código...
+  Omitiendo... (no se detectaron cambios relevantes)
   j1Audio.cpp
-  Motor2D.vcxproj -> C:\Users\genisbs\Desktop\Dev_class10_handout\Debug\Development - Class 10.exe
-  Motor2D.vcxproj -> C:\Users\genisbs\Desktop\Dev_class10_handout\Debug\Development - Class 10.pdb (Partial PDB)
+  Motor2D.vcxproj -> C:\Users\Joan\Documents\GitHub\Homework\Dev_class10_handout\Debug\Development - Class 10.exe

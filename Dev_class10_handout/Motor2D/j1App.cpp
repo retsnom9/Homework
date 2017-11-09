@@ -128,7 +128,7 @@ bool j1App::Start()
 }
 
 // Called each loop iteration
-bool j1App::Update()
+bool j1App::Update(float dt)
 {
 	bool ret = true;
 	PrepareUpdate();
@@ -171,6 +171,7 @@ void j1App::PrepareUpdate()
 	last_sec_frame_count++;
 
 	// TODO 4: Calculate the dt: differential time since last frame
+	dt = frame_time.ReadSec();
 	frame_time.Start();
 }
 
@@ -205,12 +206,14 @@ void j1App::FinishUpdate()
 	// TODO 2: Use SDL_Delay to make sure you get your capped framerate
 	timer.Start();
 	expected_delay = 1000 / framerate_cap - last_frame_ms;
-	if (1000 / framerate_cap - last_frame_ms > 0)
-		SDL_Delay(1000 / framerate_cap - last_frame_ms);
-	// TODO 3: Measure accurately the amount of time it SDL_Delay actually waits compared to what was expected
-	real_delay = timer.ReadMs();
-	dt = real_delay / 1000;
-	LOG("We waited for %f milliseconds and got back in %f", expected_delay, real_delay);
+	if (expected_delay > 0)
+	{
+		SDL_Delay(expected_delay);
+		// TODO 3: Measure accurately the amount of time it SDL_Delay actually waits compared to what was expected
+		real_delay = timer.ReadMs();
+
+		LOG("We waited for %f milliseconds and got back in %f", expected_delay, real_delay);
+	}
 }
 
 // Call modules before each loop iteration
@@ -254,7 +257,7 @@ bool j1App::DoUpdate()
 		// TODO 5: send dt as an argument to all updates
 		// you will need to update module parent class
 		// and all modules that use update
-		ret = item->data->Update();
+		ret = item->data->Update(dt);
 	}
 
 	return ret;
